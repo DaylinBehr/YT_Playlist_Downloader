@@ -1,0 +1,27 @@
+{
+  "name": "yt_playlist_downloader",
+  "version": "1.2.0",
+  "description": "A simple Youtube Audio downloader. Works with Youtube/Youtube Music. Able to download either individual audios or whole playlists.",
+  "main": "index.js",
+  "dependencies": {
+    "ffmpeg": "0.0.4",
+    "fluent-ffmpeg": "^2.1.2",
+    "path": "^0.12.7",
+    "ytdl-core": "^4.9.1",
+    "ytpl": "^2.2.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daylin Behr",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaylinBehr/YT_Playlist_Downloader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DaylinBehr/YT_Playlist_Downloader/issues"
+  },
+  "homepage": "https://github.com/DaylinBehr/YT_Playlist_Downloader#readme"
+}
