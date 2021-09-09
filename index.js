@@ -43,6 +43,7 @@ async function execute() {
           // DOWNLOAD SONG AND SAVE TO FILE
           const downloadStrm = ytdl(myArgs[0], {
             filter: "audioonly",
+            quality: '140',
             format: "m4a",
           });
 
