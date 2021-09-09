@@ -1,5 +1,5 @@
 # YT_Playlist_Downloader
-A simple Youtube Audio downloader. Works with Youtube/Youtube Music. Able to download either individual audios or whole playlists in mp3 format.
+A simple Youtube Audio downloader. Works with Youtube/Youtube Music. Able to download either individual audios or whole playlists in m4a format.
 
 ## USAGE
 ### Steps:
