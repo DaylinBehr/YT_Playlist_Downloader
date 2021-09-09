@@ -97,7 +97,7 @@ async function execute() {
           // DOWNLOAD SONGS AND SAVE TO THEIR OWN FILES
           const downloadStrm = ytdl(item.url, {
             filter: "audioonly",
-            quality: "best",
+            quality: '140',
             format: "m4a",
           });
 
