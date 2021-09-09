@@ -20,20 +20,6 @@ if (!fs.existsSync(downloadsDir)) {
 // RUN MAIN DOWNLOAD METHOD
 execute();
 
-// REGEX FUNCTION TO CHECK IF YOUTUBE LINK IS VALID
-function validURL(str) {
-  // URL REGEX PATTERN
-  let urlPattern = new RegExp(
-    "^(https?:\\/\\/)?" + // protocol
-      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
-      "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
-      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
-      "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
-      "(\\#[-a-z\\d_]*)?$", // fragment locator
-    "i" // make it case insensitive
-  );
-  return !!urlPattern.test(str);
-}
 
 // MAIN YOUTUBE AUDIO DOWNLOAD LOGIC
 async function execute() {
@@ -49,7 +35,7 @@ async function execute() {
           let pattern = /\s[-_|?{}]/gi;
 
           // CLEANED UP SONG NAME
-          let newName = info.videoDetails.title.replace(pattern, "") + ".mp3"; // RENAME WITHOUT SPACES
+          let newName = info.videoDetails.title.replace(pattern, "") + ".m4a"; // RENAME WITHOUT SPACES
 
           // OUTPUT NEW SONG NAME
           process.stdout.write(newName);
@@ -57,7 +43,7 @@ async function execute() {
           // DOWNLOAD SONG AND SAVE TO FILE
           const downloadStrm = ytdl(myArgs[0], {
             filter: "audioonly",
-            format: "mp3",
+            format: "m4a",
           });
 
           // PIPE DOWNLOADED SONG TO NEW MP3 FILE AND SAVE LOCALLY
@@ -106,12 +92,13 @@ async function execute() {
         // LOOP THROUGH EACH PLAYLIST ITEM
         songList.items.forEach((item) => {
           // CLEANED UP SONG NAME
-          let newName = item.title.replace(pattern, "") + ".mp3";
+          let newName = item.title.replace(pattern, "") + ".m4a";
 
           // DOWNLOAD SONGS AND SAVE TO THEIR OWN FILES
           const downloadStrm = ytdl(item.url, {
             filter: "audioonly",
-            format: "mp3",
+            quality: "best",
+            format: "m4a",
           });
 
           // PIPE DOWNLOADED SONG TO NEW MP3 FILE AND SAVE LOCALLY
