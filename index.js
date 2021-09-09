@@ -38,12 +38,10 @@ function validURL(str) {
 // MAIN YOUTUBE AUDIO DOWNLOAD LOGIC
 async function execute() {
   try {
-    // CHECK IF LINK IS VALID URL
-    if (validURL(myArgs[0])) {
       // CHECK IF LINK IS NOT VALID PLAYLIST
       if (!ytpl.validateID(myArgs[0])) {
         // CHECK IF LINK IS VALID YOUTUBE VIDEO LINK
-        if (ytdl.validateURL()) {
+        if (ytdl.validateURL(myArgs[0])) {
           // GET VIDEO INFO
           let info = await ytdl.getInfo(myArgs[0]);
 
@@ -138,10 +136,6 @@ async function execute() {
           });
         });
       }
-    } else {
-      // INVALID LINK EXCEPTION HANDLING
-      process.stderr.write("\nINVALID LINK\n\n");
-    }
   } catch (err) {
     // CATCH ARBITRARY ERRORS AND DISPLAY
     process.stderr.write("\nSOMETHING WENT WRONG!\n");
